@@ -38,7 +38,7 @@ class ChatTabListView extends StatelessWidget {
           child: Row(
             children: [
               UserProfileImage(
-                demension: 50,
+                dimension: 50,
                 imgUrl: 'https://picsum.photos/200/300',
               ),
               SizedBox(width: 16),

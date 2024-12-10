@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class UserProfileImage extends StatelessWidget {
   const UserProfileImage({
     super.key,
-    required this.demension,
+    required this.dimension,
     required this.imgUrl,
   });
 
-  final double demension;
+  final double dimension;
   final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox.square(
-      dimension: demension,
+      dimension: dimension,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
         child: Image.network(

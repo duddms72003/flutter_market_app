@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_market_app/core/snackbar_util.dart';
 import 'package:flutter_market_app/ui/pages/home/_tab/my_tab/widgets/my_profile_box.dart';
 
 class MyTab extends StatelessWidget {
@@ -10,6 +11,9 @@ class MyTab extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         children: [
           MyProfileBox(),
+          SizedBox(
+            height: 8,
+          ),
           label('나의 거래'),
           item(text: '관심목록', icon: CupertinoIcons.heart),
           item(text: '판매내역', icon: CupertinoIcons.square_list),
@@ -48,19 +52,30 @@ class MyTab extends StatelessWidget {
     IconData? icon,
     required String text,
   }) {
-    return Row(
-      children: [
-        if (icon != null) ...[
-          Icon(icon),
-          SizedBox(width: 8),
-        ],
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
+    return Builder(builder: (context) {
+      return GestureDetector(
+        onTap: () {
+          SnackbarUtil.showSnackBar(context, '준비중 입니다');
+        },
+        child: Container(
+          height: 40,
+          color: Colors.transparent,
+          child: Row(
+            children: [
+              if (icon != null) ...[
+                Icon(icon),
+                SizedBox(width: 8),
+              ],
+              Text(
+                text,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ],
           ),
         ),
-      ],
-    );
+      );
+    });
   }
 }
